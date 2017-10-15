@@ -1,0 +1,11 @@
+Enter area boundaries: 10 F 
+Type for battleship 1: Q    
+Dimension for battleship 1: 1 1 
+Location of battleship 1 for player A: F1   
+Location of battleship 1 for player B: A2   
+Type for battleship 2: P    
+Dimension for battleship 2: 2 1 
+Location of battleship 2 for player A: D4   
+Location of battleship 2 for player B: F9   
+Missile targets for player A: A1 B2 B2 B3   
+Missile targets for player B: F1 F1 B3 A1 D1 E1 D4 D4 D5 D5

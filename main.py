@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
         #get battlefield dimensions
         bndry_width = int(rawinput[0].split()[3])
-        bndry_height = int(converttonumber(rawinput[0].split()[4]))
+        bndry_height = int(ConvertToNumber(rawinput[0].split()[4]))
 
         #battleship type
         ship_type1 = rawinput[1].split()[4]
@@ -36,14 +36,14 @@ if __name__ == '__main__':
         
         #location of battleship
         loc1A=list(rawinput[3].split()[7])
-        loc1A[0]=converttonumber(loc1A[0])
+        loc1A[0]=ConvertToNumber(loc1A[0])
         loc1B=list(rawinput[4].split()[7])
-        loc1B[0]=converttonumber(loc1B[0])
+        loc1B[0]=ConvertToNumber(loc1B[0])
 
         loc2A=list(rawinput[7].split()[7])
-        loc2A[0]=converttonumber(loc2A[0])
+        loc2A[0]=ConvertToNumber(loc2A[0])
         loc2B=list(rawinput[8].split()[7])
-        loc2B[0]=converttonumber(loc2B[0])
+        loc2B[0]=ConvertToNumber(loc2B[0])
 
         misiles_of_A = rawinput[9].split()[5:]
         misiles_of_B = rawinput[10].split()[5:]

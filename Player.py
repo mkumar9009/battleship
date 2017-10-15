@@ -1,6 +1,6 @@
 from Ship import *
 from BattleField import *
-from GameFunctions import converttonumber
+from GameFunctions import ConvertToNumber
 class Player():
     _myships=[]
     _misiles_tgt_loc=[]
@@ -21,7 +21,7 @@ class Player():
         tgtlocs=[]
         for loc in locs:
             coord = list(loc)
-            coord[0]=converttonumber(coord[0])
+            coord[0]=ConvertToNumber(coord[0])
             tgtlocs.append(coord[1]+coord[0])
         return tgtlocs
 

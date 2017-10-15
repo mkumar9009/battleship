@@ -1,6 +1,10 @@
 
-def converttonumber(a):
+def ConvertToNumber(a):
     return str(ord(a)-ord('A')+1)
+
+def ConvertToAlphabet(a):
+    x=a+64
+    return chr(x)
 
 # 1 - it was a hit
 # 0 - it was a miss
@@ -33,6 +37,15 @@ def ChangeTurn(attacker,opponent,misilehit):
     else:
         return attacker,opponent
 
+def RemapTgtLoc(tgtloc):
+    #tgtloc here is in xy format. For instance '11','34'
+    #while input was in yx format. For instance 'A1','D3'
+    #map tgtloc so that prints happens in required format
+    coord=list(tgtloc)
+    coord[1]=ConvertToAlphabet(int(coord[1]))
+    tgtloc = coord[1]+coord[0]
+    return tgtloc 
+
 def DeclarePeace(attacker,opponent):
     if(attacker.isMisileLeft()==0 and opponent.isMisileLeft()==0):
         print ("There is no winner!, Declare peace")
@@ -46,13 +59,13 @@ def StartGame(attacker,opponent):
         misilehit = firemisile(attacker,opponent,tgtloc)
         attacker.UpdateMisiles()
         if(misilehit==1):
-            print (attacker.name, "fires a misile with target" , tgtloc, "which hit")
+            print (attacker.name, "fires a misile with target" , RemapTgtLoc(tgtloc), "which hit")
             opponent.UpdateShipHealth(tgtloc)
             opponent.BF.UpdateBattleField(tgtloc)
             if(isAttackerWinner(attacker,opponent)):
                 break;
         else:
-            print (attacker.name, "fires a misile with target" , tgtloc, "which missed")
+            print (attacker.name, "fires a misile with target" , RemapTgtLoc(tgtloc), "which missed")
             
         if(DeclarePeace(attacker,opponent)==1):
             break;

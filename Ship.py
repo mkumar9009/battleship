@@ -11,7 +11,6 @@ class inttype:
         self.a=val
 
     def __delete__(self, instance):
-        print ("Deleting: %s" %self.a)
         del self.a
 
 class Ship:
@@ -55,8 +54,6 @@ class Ship:
     @loc.setter
     def loc(self,sloc):
         self._loc=sloc
-
-
 
 
 

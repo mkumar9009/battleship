@@ -6,7 +6,6 @@ def converttonumber(a):
 # 0 - it was a miss
 
 def firemisile(attacker,opponent,tgtloc):
-    print ("fired")
     return opponent.HitOrMiss(tgtloc)
 
 def ShipHitPoints(ship_type):
@@ -17,24 +16,21 @@ def ShipHitPoints(ship_type):
         
 def isAttackerWinner(attacker,opponent):
     if(opponent.isShipLeft()==0):
-        print (attacker.name + " is winner")
-        print ("Game Ends Here")
+        print (attacker.name + " won the battle")
         return 1
     else:
         return 0
 
 def ChangeTurn(attacker,opponent,misilehit):
     if(opponent.isMisileLeft()==1 and misilehit==0):
-        print ("##################################################################################################Opponent Turn")
         temp=attacker
         attacker=opponent
         opponent=temp
         return attacker,opponent
-#    if(attacker.isMisileLeft()==1 and misilehit==1):
-#        print("Its a hit . next chance to attacker")
-#        return attacker,opponent
+    elif(opponent.isMisileLeft()==0 and misilehit==0):
+        print (opponent.name, "has no more misiles left")
+        return attacker,opponent
     else:
-        print ("continue Same turn")
         return attacker,opponent
 
 def DeclarePeace(attacker,opponent):
@@ -48,13 +44,16 @@ def StartGame(attacker,opponent):
     while(1):
         tgtloc = attacker.gettargetloc()
         misilehit = firemisile(attacker,opponent,tgtloc)
-        print ("misilehit", misilehit)
         attacker.UpdateMisiles()
         if(misilehit==1):
+            print (attacker.name, "fires a misile with target" , tgtloc, "which hit")
             opponent.UpdateShipHealth(tgtloc)
             opponent.BF.UpdateBattleField(tgtloc)
             if(isAttackerWinner(attacker,opponent)):
                 break;
+        else:
+            print (attacker.name, "fires a misile with target" , tgtloc, "which missed")
+            
         if(DeclarePeace(attacker,opponent)==1):
             break;
             

@@ -34,34 +34,25 @@ class Player():
     def misiles(self,tgtlocs):
         tgtlocs = self.convert_tgtlocs(tgtlocs)
         self._misiles=tgtlocs
-        print (self._misiles)
 
     def remaining_ships(self):
         return len(self._myships)
     
     def isShipLocated(self,tgtloc):
-        print ("Tgt loc is ",tgtloc)
-        print ("field locs",self.BF.field)
         if tgtloc in self.BF.field:
-            print ("Target loc HIT")
             return 1 
         else:
             return 0
 
     def HitOrMiss(self,tgtloc):
-        print ("check hit misss")
         if (self.isShipLocated(tgtloc)==1):
-            print ("shiplocated and a hit")
             return 1
         else:
-            print ("Miss it is")
             return 0
        
     def UpdateShipHealth(self,tgtloc):
         #reduce hit points of ship
-        print ("ship health",self.BF.field[tgtloc])
         self.BF.field[tgtloc]=self.BF.field[tgtloc]-1
-        print ("updated ship health",self.BF.field[tgtloc])
         return self.BF.field[tgtloc]
                 
     def MisilesLeft(self):
@@ -80,11 +71,8 @@ class Player():
             return 0 
     
     def gettargetloc(self):
-        print ("Misiles", self._misiles)
         return self._misiles[0]
 
     def UpdateMisiles(self):
-        print ("decreased misiles")
         self._misiles.pop(0)
-        print ("Misiles",self._misiles)
         

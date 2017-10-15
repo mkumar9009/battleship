@@ -49,8 +49,8 @@ if __name__ == '__main__':
         misiles_of_B = rawinput[10].split()[5:]
 #        print ship_type1,ship_type2,ship1_width,ship1_height,ship2_width,ship1_height,loc1A,loc1B,loc2A,loc2B,misiles_of_A,misiles_of_B
 
-        player1 = Player("A",bndry_width,bndry_height)
-        player2 = Player("B",bndry_width,bndry_height) 
+        player1 = Player("Player-1",bndry_width,bndry_height)
+        player2 = Player("Player-2",bndry_width,bndry_height) 
 
         player1.add_ship(ship1_width,ship1_height,loc1A,1,player1.BF,ship_hit_points1)
         player1.add_ship(ship2_width,ship2_height,loc2A,2,player1.BF,ship_hit_points2)

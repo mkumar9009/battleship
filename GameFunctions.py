@@ -15,9 +15,9 @@ def ShipHitPoints(ship_type):
     elif(ship_type=='Q'):
         return 2
         
-def isAttackerWinner(opponent):
+def isAttackerWinner(attacker,opponent):
     if(opponent.isShipLeft()==0):
-        print (attacker.name + "is winner")
+        print (attacker.name + " is winner")
         print ("Game Ends Here")
         return 1
     else:
@@ -53,7 +53,7 @@ def StartGame(attacker,opponent):
         if(misilehit==1):
             opponent.UpdateShipHealth(tgtloc)
             opponent.BF.UpdateBattleField(tgtloc)
-            if(isAttackerWinner(opponent)):
+            if(isAttackerWinner(attacker,opponent)):
                 break;
         if(DeclarePeace(attacker,opponent)==1):
             break;

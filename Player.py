@@ -74,7 +74,7 @@ class Player():
             return 0
 
     def isShipLeft(self):
-        if len(self._myships)>0:
+        if len(self.BF.field)>0:
             return 1
         else:
             return 0 

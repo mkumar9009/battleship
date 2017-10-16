@@ -1,20 +1,5 @@
 from BattleField import *
-class inttype:
-
-    def __init__(self,default):
-        self.a=default
-
-    def __get__(self):
-        return self.a
-
-    def __set__(self,val):
-        self.a=val
-
-    def __delete__(self, instance):
-        del self.a
-
 class Ship:
-
 
 #    field = BattleField()
 
